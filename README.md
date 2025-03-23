@@ -10,6 +10,8 @@ source .venv/bin/activate
 uv pip install -r pyproject.toml
 ```
 
+**NOTE:** A pyaudio dependencies may have issues being insteall in the uv virtual environment
+
 ## Usage
 ```
 python gpt_speaking_coach.py --input oai_s1.txt

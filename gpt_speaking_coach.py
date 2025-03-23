@@ -150,6 +150,20 @@ if __name__ == '__main__':
         print("\n\n**SAVE OUTPUT**\n")
         print(r1)
 
+        ansi_code = "\x1b[0;32;1m"
+        error_count = r1.count(ansi_code)
+        word_count = len(tmp.split())
+
+        print(f"\n\n**Total Words: {word_count}**")
+        print(f"**Total Incorrect Words: {error_count}**")
+
+        if word_count > 0:
+            error_percent = (error_count / word_count) * 100
+            print(f"**Error Percentage: {error_percent:.2f}%**")
+        else:
+            print("**Error Percentage: N/A (no words)**")
+        print("**NOTE: A error percentage is 1-2%**")
+
         # Save the output to a file
         with open("diff_output.txt", "w", encoding="utf-8") as f:
             f.write(r1)
