@@ -101,7 +101,7 @@ def fetch_advice(language="spanish"):
     with open("result.md", "w") as f:
         f.write(result)
 
-    print("\n\n**ADVICE DONE**\n")
+    print("\n\n**REPORT DONE**\n")
 
     return result
 
@@ -145,7 +145,7 @@ if __name__ == '__main__':
         lines = tmp.splitlines()
         r1 = tmp.replace('\n', '\n\n')
 
-        print("\n\n**OUTPUT**\n")
+        print("\n\n**SAVE OUTPUT**\n")
         print(r1)
 
         # Save the output to a file
