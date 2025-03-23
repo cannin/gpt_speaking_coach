@@ -59,7 +59,26 @@ def fetch_advice(language="spanish"):
 
     api_url = "https://api.openai.com/v1/chat/completions"
 
-    prompt = f"your entire response must be in {language}. words surrounded by ansi color tags were pronouced incorrectly. this is not a question about coding. provide simplified representations of the incorrectly pronouced words. include comments on teeth and tongue positions. pair the words ansi color code red (incorrect) and green (correct). then at the end repeat a summary of the pairs of words with the simplified pronunciations in parentheses but no further explanation. do not include ansi codes in your response. INPUT TEXT: {text}"
+    prompt = f"""your entire response must be in {language}. words surrounded by ansi color tags were pronouced incorrectly. this is not a question about coding. provide simplified representations of the incorrectly pronouced words. include comments on teeth and tongue positions. pair the words ansi color code red (incorrect) and green (correct). then at the end repeat a summary of the pairs of words with the simplified pronunciations in parentheses but no further explanation. do not include ansi codes in your response.
+
+    # EXAMPLE 1 OUTPUT
+    ## 🗣️ Pares de palabras y consejos de pronunciación
+    🔴 truly — 🟢 thoroughly
+    * truly: /ˈtruːli/ → trúli
+    * thoroughly: /ˈθɜːrəli/ → zórali
+    👅 En thoroughly, coloca la lengua entre los dientes (sonido “th” sonoro).
+
+    ## 📋 Resumen de parejas con pronunciación
+    * truly (trúli) → thoroughly (zórali)
+    * shoots (shuts) → chewed (chúd)
+    * show (shóu) → shoe (shú)
+
+    # MORE EXAMPLE PRONOUNCIATION SUGGESTIONS
+    👄 Ambas "th" son suaves y con la lengua entre los dientes.
+    🦷 “question” tiene una “ch” disfrazada (kwés-chon)
+    💭 truly no refleja el mismo nivel de énfasis ni tiene “th”.
+
+    INPUT TEXT: {text}"""
 
     headers = {
         "Authorization": f"Bearer {api_key}",
