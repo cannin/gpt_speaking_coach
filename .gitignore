@@ -172,3 +172,10 @@ cython_debug/
 
 # PyPI configuration file
 .pypirc
+
+# Project specific files
+diff_output.txt
+f1.txt
+f2.txt
+result.md
+realtime_stt.log

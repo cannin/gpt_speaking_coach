@@ -67,6 +67,7 @@ def fetch_advice(language="spanish"):
     * truly: /ˈtruːli/ → trúli
     * thoroughly: /ˈθɜːrəli/ → zórali
     👅 En thoroughly, coloca la lengua entre los dientes (sonido “th” sonoro).
+    💭 truly no refleja el mismo nivel de énfasis ni tiene “th”.
 
     ## 📋 Resumen de parejas con pronunciación
     * truly (trúli) → thoroughly (zórali)
@@ -76,7 +77,6 @@ def fetch_advice(language="spanish"):
     # MORE EXAMPLE PRONOUNCIATION SUGGESTIONS
     👄 Ambas "th" son suaves y con la lengua entre los dientes.
     🦷 “question” tiene una “ch” disfrazada (kwés-chon)
-    💭 truly no refleja el mismo nivel de énfasis ni tiene “th”.
 
     INPUT TEXT: {text}"""
 
@@ -107,6 +107,12 @@ def fetch_advice(language="spanish"):
 
 
 if __name__ == '__main__':
+    # Initialization: Delete files if they exist
+    for file in ["result.md", "diff_output.txt", "f1.txt", "f2.txt"]:
+        if os.path.exists(file):
+            os.remove(file)
+
+    # Parse arguments
     parser = argparse.ArgumentParser(description="Transcribe and compare spoken text")
     parser.add_argument("-i", "--input", default="oai_s1.txt", help="Input file (default: oai_s1.txt)")
     parser.add_argument("-l", "--language", default="spanish", help="Language for pronunciation advice (default: spanish)")
@@ -116,6 +122,7 @@ if __name__ == '__main__':
     recorder = AudioToTextRecorder(model="tiny.en")
     #recorder = AudioToTextRecorder(model="medium.en")
 
+    # Main loop
     try:
         while True:
             recorder.text(process_text)
