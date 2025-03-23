@@ -37,8 +37,6 @@ def process_all_text(path=None):
     cleaned = ''.join(sentence.strip() + '\n' for sentence in sentences)
 
     # Step 5: Remove punctuation
-    #cleaned = re.sub(r'[^\w\s]', ' ', cleaned)
-    #cleaned = re.sub(r'\s+', ' ', cleaned)
     cleaned = re.sub(r"['|,]", "", cleaned)
 
     # Step 6: Lowercase
@@ -104,9 +102,6 @@ if __name__ == '__main__':
         while True:
             recorder.text(process_text)
     except KeyboardInterrupt:
-        #live.stop()
-        #console.print("[bold red]Transcription stopped by user. Exiting...[/bold red]")
-
         with open("f1.txt", "w") as f:
             tmp = process_all_text()
             f.write(tmp)
