@@ -59,7 +59,7 @@ def fetch_advice(language="spanish"):
 
     api_url = "https://api.openai.com/v1/chat/completions"
 
-    prompt = f"""your entire response must be in {language}. words surrounded by ansi color tags were pronouced incorrectly. this is not a question about coding. provide simplified representations of the incorrectly pronouced words. include comments on teeth and tongue positions. pair the words ansi color code red (incorrect) and green (correct). then at the end repeat a summary of the pairs of words with the simplified pronunciations in parentheses but no further explanation. do not include ansi codes in your response.
+    prompt = f"""your entire response must be in {language}. words surrounded by ansi color tags were pronouced incorrectly. this is not a question about coding. provide simplified representations of the incorrectly pronouced words. it is important include comments on teeth and tongue positions for correct pronunciations. pair the words ansi color code red (incorrect) and green (correct). then at the end repeat a summary of the pairs of words with the simplified pronunciations in parentheses but no further explanation. do not include ansi codes in your response.
 
     # EXAMPLE 1 OUTPUT
     ## 🗣️ Pares de palabras y consejos de pronunciación
@@ -68,6 +68,7 @@ def fetch_advice(language="spanish"):
     * thoroughly: /ˈθɜːrəli/ → zórali
     👅 En thoroughly, coloca la lengua entre los dientes (sonido “th” sonoro).
     💭 truly no refleja el mismo nivel de énfasis ni tiene “th”.
+    👄 Ambas "th" son suaves y con la lengua entre los dientes.
 
     ## 📋 Resumen de parejas con pronunciación
     * truly (trúli) → thoroughly (zórali)
@@ -75,7 +76,6 @@ def fetch_advice(language="spanish"):
     * show (shóu) → shoe (shú)
 
     # MORE EXAMPLE PRONOUNCIATION SUGGESTIONS
-    👄 Ambas "th" son suaves y con la lengua entre los dientes.
     🦷 “question” tiene una “ch” disfrazada (kwés-chon)
 
     INPUT TEXT: {text}"""
