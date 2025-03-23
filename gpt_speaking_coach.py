@@ -3,7 +3,6 @@ import subprocess
 import os
 from dotenv import load_dotenv
 import requests
-from rich import print
 
 from RealtimeSTT import AudioToTextRecorder
 import argparse
@@ -102,7 +101,7 @@ def fetch_advice(language="spanish"):
     with open("result.md", "w") as f:
         f.write(result)
 
-    print("\n\n[bold bright_green]**REPORT DONE**[/bold bright_green]\n")
+    print("\n\n**REPORT DONE**\n")
 
     return result
 
@@ -119,7 +118,7 @@ if __name__ == '__main__':
     parser.add_argument("-l", "--language", default="spanish", help="Language for pronunciation advice (default: spanish)")
     args = parser.parse_args()
 
-    print("[bold bright_blue]**Wait Until: 'speak now'**[/bold bright_blue]")
+    print("**Wait Until: 'speak now'**")
     recorder = AudioToTextRecorder(model="tiny.en")
     #recorder = AudioToTextRecorder(model="medium.en")
 
@@ -146,7 +145,7 @@ if __name__ == '__main__':
         lines = tmp.splitlines()
         r1 = tmp.replace('\n', '\n\n')
 
-        print("\n\n[bold bright_green]**SAVE OUTPUT**[/bold bright_green]\n")
+        print("\n\n**SAVE OUTPUT**\n")
         print(r1)
 
         # Save the output to a file
