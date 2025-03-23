@@ -3,6 +3,7 @@
 ## Installation
 ```
 brew install dwdiff
+brew install portaudio
 
 uv venv --python 3.10
 source .venv/bin/activate
