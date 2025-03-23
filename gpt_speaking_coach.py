@@ -118,7 +118,7 @@ if __name__ == '__main__':
     parser.add_argument("-l", "--language", default="spanish", help="Language for pronunciation advice (default: spanish)")
     args = parser.parse_args()
 
-    print("**Wait Until: 'speak now'**")
+    print("\n**Wait Until: 'speak now'**\n")
     recorder = AudioToTextRecorder(model="tiny.en")
     #recorder = AudioToTextRecorder(model="medium.en")
 
