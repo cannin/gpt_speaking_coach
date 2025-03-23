@@ -59,7 +59,7 @@ def fetch_advice(language="spanish"):
 
     api_url = "https://api.openai.com/v1/chat/completions"
 
-    prompt = f"words with ansi color tags were pronouced incorrectly; provide pronounciation advice in {language}. this is not a question about coding. provide simplified representations of the pronounciations. include comments on teeth and tongue positions. pair the words red (incorrect) and green (correct). then at the end repeat a summary of the pairs of words with the simplified pronunciations in parentheses but no further explanation. INPUT TEXT: {text}"
+    prompt = f"your entire response must be in {language}. words surrounded by ansi color tags were pronouced incorrectly. this is not a question about coding. provide simplified representations of the incorrectly pronouced words. include comments on teeth and tongue positions. pair the words ansi color code red (incorrect) and green (correct). then at the end repeat a summary of the pairs of words with the simplified pronunciations in parentheses but no further explanation. do not include ansi codes in your response. INPUT TEXT: {text}"
 
     headers = {
         "Authorization": f"Bearer {api_key}",
