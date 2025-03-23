@@ -54,7 +54,7 @@ def process_text(text):
     print(text)
 
 
-def fetch_advice():
+def fetch_advice(language="spanish"):
     with open("diff_output.txt", 'r', encoding='utf-8') as f:
         text = f.read()
 
@@ -62,7 +62,7 @@ def fetch_advice():
 
     api_url = "https://api.openai.com/v1/chat/completions"
 
-    prompt = f"words with ansi color tags were pronouced incorrectly; provide some pronounciation advice in spanish. this is not a question about coding. provide simplified representations of the pronounciations. include comments on teeth and tongue positions. pair the words red (incorrect) and green (correct). then at the end  repeat a summary of the pairs of words with the simplified pronunciations in parentheses but no further explanation. INPUT TEXT: {text}"
+    prompt = f"words with ansi color tags were pronouced incorrectly; provide some pronounciation advice in {language}. this is not a question about coding. provide simplified representations of the pronounciations. include comments on teeth and tongue positions. pair the words red (incorrect) and green (correct). then at the end  repeat a summary of the pairs of words with the simplified pronunciations in parentheses but no further explanation. put results in markdown. INPUT TEXT: {text}"
 
     headers = {
         "Authorization": f"Bearer {api_key}",
@@ -82,7 +82,7 @@ def fetch_advice():
     else:
         print("ERROR: Failed: ", response.text)
 
-    with open("result.txt", "w") as f:
+    with open("result.md", "w") as f:
         f.write(result)
 
     print("\n\n**ADVICE DONE**\n")
@@ -93,6 +93,7 @@ def fetch_advice():
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description="Transcribe and compare spoken text")
     parser.add_argument("-i", "--input", default="oai_s1.txt", help="Input file (default: oai_s1.txt)")
+    parser.add_argument("-l", "--language", default="spanish", help="Language for pronunciation advice (default: spanish)")
     args = parser.parse_args()
 
     print("Wait until it says 'speak now'")
