@@ -1,5 +1,5 @@
 [project]
-name = "realtimestt_example"
+name = "gpt_speaking_coach"
 version = "0.0.1"
 requires-python = ">=3.10"
 dependencies = [
