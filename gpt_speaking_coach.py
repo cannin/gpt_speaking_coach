@@ -1,11 +1,13 @@
 import re
-import subprocess
 import os
+import argparse
+import subprocess
+
 from dotenv import load_dotenv
 import requests
 
 from RealtimeSTT import AudioToTextRecorder
-import argparse
+
 
 ALL_TEXT = ""
 
@@ -119,7 +121,7 @@ if __name__ == '__main__':
     args = parser.parse_args()
 
     print("\n**Wait Until: 'speak now'**\n")
-    recorder = AudioToTextRecorder(model="tiny.en")
+    recorder = AudioToTextRecorder(model="tiny.en", language="en", compute_type="float32")
     #recorder = AudioToTextRecorder(model="medium.en")
 
     # Main loop
