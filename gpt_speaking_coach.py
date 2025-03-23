@@ -8,7 +8,6 @@ from RealtimeSTT import AudioToTextRecorder
 import argparse
 
 ALL_TEXT = ""
-RUN_FLAG = True
 
 # Load environment variables
 load_dotenv()
