@@ -60,7 +60,7 @@ def fetch_advice(language="spanish"):
 
     api_url = "https://api.openai.com/v1/chat/completions"
 
-    prompt = f"words with ansi color tags were pronouced incorrectly; provide some pronounciation advice in {language}. this is not a question about coding. provide simplified representations of the pronounciations. include comments on teeth and tongue positions. pair the words red (incorrect) and green (correct). then at the end  repeat a summary of the pairs of words with the simplified pronunciations in parentheses but no further explanation. put results in markdown. INPUT TEXT: {text}"
+    prompt = f"words with ansi color tags were pronouced incorrectly; provide pronounciation advice in {language}. this is not a question about coding. provide simplified representations of the pronounciations. include comments on teeth and tongue positions. pair the words red (incorrect) and green (correct). then at the end repeat a summary of the pairs of words with the simplified pronunciations in parentheses but no further explanation. INPUT TEXT: {text}"
 
     headers = {
         "Authorization": f"Bearer {api_key}",
@@ -106,7 +106,6 @@ if __name__ == '__main__':
             tmp = process_all_text()
             f.write(tmp)
 
-        #tmp = process_all_text("gettys_real.txt")
         tmp = process_all_text(args.input)
         with open("f2.txt", "w") as f:
             f.write(tmp)
@@ -128,6 +127,6 @@ if __name__ == '__main__':
         with open("diff_output.txt", "w", encoding="utf-8") as f:
             f.write(r1)
 
-        fetch_advice()
+        fetch_advice(language=args.language)
 
         exit(0)
