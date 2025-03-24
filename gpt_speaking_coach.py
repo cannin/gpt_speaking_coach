@@ -162,11 +162,13 @@ if __name__ == '__main__':
             print("**Error Percentage: N/A (no words)**")
         print("**NOTE: A error percentage is 1-2%**")
 
-        # Save the output to a file with time
-        timestamp = datetime.datetime.now().strftime("%Y%m%d-%H%M%S")
+        # Fetch advice from LLM
+        fetch_advice(r1, language=args.language)
+
+        # Save the output to a file with timestamp
+        # Save after LLM processing to allow time to terminate failed runs
+        timestamp = datetime.now().strftime("%Y%m%d-%H%M%S")
         with open(f"diff_output_{timestamp}.txt", "w", encoding="utf-8") as f:
             f.write(r1)
-
-        fetch_advice(r1, language=args.language)
 
         exit(0)
